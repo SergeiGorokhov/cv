@@ -1,2 +1,2 @@
-# SergeiGorokhov-QA.github.io
+# SergeiGorokhovQA.github.io
 Сайт-визитка HTML, CSS
