@@ -1,2 +1,2 @@
-# sergeigorokhov-qa.github.io
+# cv
 Сайт-визитка HTML, CSS
