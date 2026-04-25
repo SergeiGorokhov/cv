@@ -115,7 +115,7 @@ if (escapeBtn && testContainer) {
         alert('🎉 Ты поймал! 🎉');
         escapeBtn.textContent = '✅ ПОЙМАНА! ✅';
         setTimeout(() => {
-            escapeBtn.textContent = 'Нажми меня 👆';
+            escapeBtn.textContent = 'Живут своей жизнью 🦇';
             resetPosition();
         }, 1500);
     });
