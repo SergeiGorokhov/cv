@@ -112,10 +112,13 @@ h1 {
     width: 280px;
     height: 280px;
     border-radius: 50%;
-    overflow: hidden;   /* скрывает всё, что выходит за круг */
+    overflow: hidden;   /* скрывает всё, что выходит за круг, но мы управляем через object-position */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end; /* фото прижато к низу */
+    border: 3px solid #00BFFF; /* синяя обводка */
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5); /* лёгкое свечение */
+    background-color: transparent;
 }
 
 /* Само фото — делаем чуть больше и смещаем */
