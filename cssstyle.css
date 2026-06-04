@@ -106,53 +106,56 @@ h1 {
     background-color: rgba(0, 191, 255, 0.1);
 }
 
-/* Контейнер — без overflow: hidden */
+/* Контейнер — без обрезки, просто центр */
 .photo-wrapper {
     position: relative;
     width: 280px;
-    height: 280px;
+    height: 320px; /* чуть выше, чтобы голова поместилась */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* прижимаем фото к верху */
+    overflow: visible;
 }
 
-/* Само фото — круглое, но голова не обрезается */
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    filter: grayscale(100%);
-    transition: all 0.3s ease;
-    display: block;
-}
-
-/* Эффект "выхода" — синий круглый контур + свечение поверх фото */
+/* Синий круг (рамка + свечение) — под фото */
 .photo-wrapper::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
     border: 3px solid #00BFFF;
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.6);
-    pointer-events: none;  /* чтобы рамка не мешала наведению */
-    z-index: 2;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+    background: rgba(0, 191, 255, 0.05); /* лёгкая подсветка */
+    pointer-events: none;
+    z-index: 1;
 }
 
-/* При наведении — убираем серый */
+/* Фото — без обрезки, с прозрачностью */
+.hero-img {
+    position: relative;
+    width: 280px;
+    height: auto;
+    display: block;
+    z-index: 2; /* выше круга */
+    filter: none; /* убираем ч/б */
+    transition: all 0.3s ease;
+}
+
+/* При наведении — лёгкая анимация */
 .photo-wrapper:hover .hero-img {
-    filter: grayscale(0%);
+    transform: scale(1.02);
     animation: wobble 0.5s ease-in-out;
 }
 
-/* Статус-бейдж остаётся поверх */
+/* Бейдж остаётся поверх */
 .status-badge {
     position: absolute;
-    bottom: 15px;
-    left: 15px;
+    bottom: 20px;
+    left: 20px;
     z-index: 10;
 }
 
