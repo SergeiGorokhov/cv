@@ -129,6 +129,10 @@ h1 {
     filter: grayscale(100%);
 }
 
+.hero-img {
+    filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.4));
+}
+
 /* При наведении — убираем серый и оставляем эффект выхода */
 .photo-wrapper:hover .hero-img {
     filter: grayscale(0%);
@@ -156,7 +160,7 @@ h1 {
     border: 1px solid rgba(0, 255, 170, 0.4);
     letter-spacing: 0.5px;
     pointer-events: none;
-    z-index: 2;
+    z-index: 10;
 }
 
 /* Компетенции */
