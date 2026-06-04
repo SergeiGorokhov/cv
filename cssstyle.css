@@ -117,47 +117,52 @@ h1 {
     overflow: visible;
 }
 
-/* Синий круг (под телом, но над головой — нет, он под всем фото) */
-.photo-wrapper::before {
+/* Нижняя половина круга (над фото) */
+.photo-wrapper::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 280px;
-    height: 280px;
-    border-radius: 50%;
+    height: 140px;          /* половина круга */
+    border-radius: 0 0 140px 140px;
     border: 3px solid #00BFFF;
-    box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+    border-top: none;
+    box-shadow: 0 5px 15px rgba(0, 191, 255, 0.3);
+    background: rgba(0, 191, 255, 0.05);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Верхняя половина круга (под фото) — опционально */
+.photo-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 140px;
+    border-radius: 140px 140px 0 0;
+    border: 3px solid #00BFFF;
+    border-bottom: none;
+    box-shadow: 0 -5px 15px rgba(0, 191, 255, 0.3);
     background: rgba(0, 191, 255, 0.05);
     pointer-events: none;
     z-index: 1;
 }
 
-/* Фото — сдвигаем вверх, чтобы голова была над кругом */
+/* Само фото */
 .hero-img {
     position: relative;
     width: 280px;
     height: auto;
     display: block;
     z-index: 2;
-    margin-top: -40px;  /* поднимаем фото вверх */
+    margin-top: -20px;
     filter: none;
     transition: all 0.3s ease;
-}
-
-/* При наведении */
-.photo-wrapper:hover .hero-img {
-    transform: scale(1.02);
-    animation: wobble 0.5s ease-in-out;
-}
-
-/* Бейдж */
-.status-badge {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    z-index: 10;
 }
 
 .status-badge {
