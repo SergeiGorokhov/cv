@@ -106,29 +106,30 @@ h1 {
     background-color: rgba(0, 191, 255, 0.1);
 }
 
-/* Hero photo with effects */
-.hero-photo {
-    flex: 1;
+/* Контейнер с круглой маской */
+.photo-wrapper {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    overflow: hidden;   /* скрывает всё, что выходит за круг */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.photo-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
+/* Само фото — делаем чуть больше и смещаем */
 .hero-img {
-    width: 280px;
-    height: 280px;
+    width: 105%;        /* немного больше контейнера */
+    height: auto;
     object-fit: cover;
-    border-radius: 50%;
-    transition: all 0.3s ease;
+    object-position: 50% 30%;  /* подними фокус: 30% — выше центра */
     display: block;
+    transition: all 0.3s ease;
     filter: grayscale(100%);
 }
 
+/* При наведении — убираем серый и оставляем эффект выхода */
 .photo-wrapper:hover .hero-img {
     filter: grayscale(0%);
     animation: wobble 0.5s ease-in-out;
