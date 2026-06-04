@@ -106,46 +106,54 @@ h1 {
     background-color: rgba(0, 191, 255, 0.1);
 }
 
-/* Контейнер с круглой маской */
+/* Контейнер — без overflow: hidden */
 .photo-wrapper {
     position: relative;
     width: 280px;
     height: 280px;
-    border-radius: 50%;
-    overflow: hidden;   /* скрывает всё, что выходит за круг, но мы управляем через object-position */
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* фото прижато к низу */
-    border: 3px solid #00BFFF; /* синяя обводка */
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5); /* лёгкое свечение */
-    background-color: transparent;
+    align-items: center;
 }
 
-/* Само фото — делаем чуть больше и смещаем */
+/* Само фото — круглое, но голова не обрезается */
 .hero-img {
-    width: 105%;        /* немного больше контейнера */
-    height: auto;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    object-position: 50% 30%;  /* подними фокус: 30% — выше центра */
-    display: block;
-    transition: all 0.3s ease;
+    border-radius: 50%;
     filter: grayscale(100%);
+    transition: all 0.3s ease;
+    display: block;
 }
 
-.hero-img {
-    filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.4));
+/* Эффект "выхода" — синий круглый контур + свечение поверх фото */
+.photo-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid #00BFFF;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.6);
+    pointer-events: none;  /* чтобы рамка не мешала наведению */
+    z-index: 2;
 }
 
-/* При наведении — убираем серый и оставляем эффект выхода */
+/* При наведении — убираем серый */
 .photo-wrapper:hover .hero-img {
     filter: grayscale(0%);
     animation: wobble 0.5s ease-in-out;
 }
 
-@keyframes wobble {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0px); }
+/* Статус-бейдж остаётся поверх */
+.status-badge {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 10;
 }
 
 .status-badge {
