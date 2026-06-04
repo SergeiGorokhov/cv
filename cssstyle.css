@@ -106,7 +106,7 @@ h1 {
     background-color: rgba(0, 191, 255, 0.1);
 }
 
-/* Контейнер */
+/* Контейнер — позиционирование */
 .photo-wrapper {
     position: relative;
     width: 280px;
@@ -117,19 +117,34 @@ h1 {
     overflow: visible;
 }
 
-/* Само фото */
+/* Само фото — один слой (фон) */
 .hero-img {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 280px;
     height: auto;
     display: block;
-    z-index: 2;
-    margin-top: -35px;  /* твоё идеальное положение */
     filter: none;
-    transition: all 0.3s ease;
+    z-index: 1;
 }
 
-/* Синий круг с маской — чтобы не закрывать голову */
+/* Верхняя часть фото (голова) — поверх рамки */
+.hero-img-top {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: auto;
+    display: block;
+    z-index: 4;
+    clip-path: inset(0 0 60% 0); /* 60% — отрезаем снизу, оставляем голову */
+    filter: none;
+}
+
+/* Синий круг (рамка) — между верхом и низом фото */
 .photo-wrapper::before {
     content: '';
     position: absolute;
@@ -144,11 +159,6 @@ h1 {
     background: rgba(0, 191, 255, 0.05);
     pointer-events: none;
     z-index: 3;
-    /* Маска: круг, но с вырезом сверху */
-    mask: radial-gradient(circle at 50% 30%, transparent 0%, transparent 0%);
-    /* Альтернатива: clip-path */
-    clip-path: inset(0 0 0 0 round 50%);
-    -webkit-mask: radial-gradient(ellipse at 50% 100%, black 0%, black 100%);
 }
 
 /* Бейдж */
