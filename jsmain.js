@@ -1,3 +1,13 @@
+// Ждём загрузку шрифтов, потом показываем текст
+if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function() {
+        document.body.classList.add('fonts-loaded');
+    });
+} else {
+    // fallback для старых браузеров
+    document.body.classList.add('fonts-loaded');
+}
+
 // Копирование email
 function copyEmail() {
     const email = 'maritimurus@mail.ru';
