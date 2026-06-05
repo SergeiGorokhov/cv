@@ -796,3 +796,31 @@ h1 {
 .photo-wrapper {
     transition: opacity 0.3s ease;
 }
+
+/* Принудительно выравниваем контейнеры */
+.escape-wrapper,
+.static-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    position: relative;
+}
+
+/* Убегающая кнопка — фиксируем начальную позицию */
+#escape-btn {
+    position: relative;
+    transform: translate(0, 70px); /* начальное положение */
+    transition: transform 0.08s linear;
+}
+
+/* Статичная кнопка — гарантируем вертикальный центр */
+.static-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.static-btn {
+    margin: 0; /* убираем любые отступы */
+}
