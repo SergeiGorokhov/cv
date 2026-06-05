@@ -782,3 +782,7 @@ h1 {
         touch-action: manipulation; /* улучшает отклик на мобилках */
     }
 }
+
+.photo-wrapper {
+    transition: opacity 0.3s ease;
+}
