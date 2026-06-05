@@ -115,7 +115,7 @@ if (escapeBtn && testContainer) {
     }
     
     function resetPosition() {
-        escapeBtn.style.transform = 'translate(0, 0)';
+        escapeBtn.style.transform = 'translate(0, 70px)';
     }
     
     testContainer.addEventListener('mousemove', moveAway);
