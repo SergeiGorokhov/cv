@@ -1,4 +1,4 @@
-*/* Скрываем текст, пока шрифты не загрузились */
+/* Скрываем текст, пока шрифты не загрузились */
 body {
     visibility: hidden;
 }
@@ -799,6 +799,16 @@ h1 {
     transition: opacity 0.3s ease;
 }
 
+.escape-wrapper {
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;  /* меняем на колонку */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;  /* расстояние между кнопкой и подписью */
+}
+
 /* Принудительно выравниваем контейнеры */
 .escape-wrapper,
 .static-wrapper {
@@ -823,6 +833,7 @@ h1 {
     align-items: center;
 }
 
-.static-btn {
+.static-bt    margin: 0; /* убираем любые отступы */
+
+tatic-btn {
     margin: 0; /* убираем любые отступы */
-}
