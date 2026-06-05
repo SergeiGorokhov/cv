@@ -173,3 +173,23 @@ function initMobileEscapeButton() {
 }
 
 document.addEventListener('DOMContentLoaded', initMobileEscapeButton);
+
+// Плавное появление фото после загрузки
+const heroImg = document.querySelector('.hero-img');
+const photoWrapper = document.querySelector('.photo-wrapper');
+
+if (heroImg && photoWrapper) {
+    // Скрываем блок до загрузки
+    photoWrapper.style.opacity = '0';
+    
+    // Когда фото загрузилось — показываем
+    heroImg.onload = function() {
+        photoWrapper.style.transition = 'opacity 0.3s ease';
+        photoWrapper.style.opacity = '1';
+    };
+    
+    // Если фото уже загружено (из кэша)
+    if (heroImg.complete) {
+        photoWrapper.style.opacity = '1';
+    }
+}
