@@ -413,8 +413,16 @@ h1 {
     color: #00BFFF;
 }
 
-/* Настройки рамки для мобильной версии (взяты со скриншота "3") */
-@media (max-width: 768px) {
+/* ===== АДАПТИВ ДО 900px (планшеты и мобилки) ===== */
+@media (max-width: 900px) {
+    /* Контейнер фото */
+    .photo-wrapper {
+        width: 210px;
+        height: 210px;
+        margin: 0 auto;
+    }
+    
+    /* Рамка фото — твои параметры со скрина "3" */
     .photo-wrapper::before {
         top: 16.5%;
         left: 9.5%;
@@ -423,8 +431,9 @@ h1 {
     }
 }
 
-/* Настройки рамки для WEB (взяты со скриншота "4") */
-@media (min-width: 769px) {
+/* ===== АДАПТИВ ОТ 901px (десктопы) ===== */
+@media (min-width: 901px) {
+    /* Рамка фото — твои параметры со скрина "4" */
     .photo-wrapper::before {
         top: 18.7%;
         left: 8.2%;
@@ -469,12 +478,6 @@ h1 {
         height: 200px;
     }
     
-    .photo-wrapper {
-        width: 210px;
-        height: 210px;
-        margin: 0 auto;
-    }
-
     .status-badge {
         font-size: 10px;
         bottom: 8px;
