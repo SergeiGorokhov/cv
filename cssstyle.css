@@ -413,6 +413,26 @@ h1 {
     color: #00BFFF;
 }
 
+/* Настройки рамки для мобильной версии (взяты со скриншота "3") */
+@media (max-width: 768px) {
+    .photo-wrapper::before {
+        top: 16.5%;
+        left: 9.5%;
+        width: 78.5%;
+        height: 80.5%;
+    }
+}
+
+/* Настройки рамки для WEB (взяты со скриншота "4") */
+@media (min-width: 769px) {
+    .photo-wrapper::before {
+        top: 18.7%;
+        left: 8.2%;
+        width: 82%;
+        height: 80.5%;
+    }
+}
+
 /* Адаптив */
 @media (max-width: 900px) {
     .container {
